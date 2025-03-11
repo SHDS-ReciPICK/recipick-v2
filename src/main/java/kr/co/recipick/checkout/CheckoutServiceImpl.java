@@ -8,6 +8,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.ResponseEntity;
@@ -20,9 +21,11 @@ import org.springframework.http.MediaType;
 @Service
 public class CheckoutServiceImpl implements CheckoutService {
 
-	private static final String IMP_KEY = "1580273438428377";
-	private static final String IMP_SECRET = "vBQGwvuO8CRn94GaV4l0lguj8lYoXyZhK3W262se77SNWC1C58PwfyOwhIiHy6s1Thty8ea9rHBEFpKk";
-	// 나중에숨김처리
+	@Value("${imp.key}")
+	private String IMP_KEY;
+
+	@Value("${imp.secret}")
+	private String IMP_SECRET;
 
 	@Autowired
 	private CheckoutMapper checkoutMapper;

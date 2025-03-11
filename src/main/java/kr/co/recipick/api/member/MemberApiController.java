@@ -22,7 +22,7 @@ public class MemberApiController {
     @Autowired
     private AuthService authService;
     
-    // 이메일로 회원 정보 조회 // 이메일 노출 우려로 겟방식 사용 안함 근데 auth의 경우 다시 생각 해보자
+    //이메일 노출 때문에 post 
     @PostMapping("/info")
     @ResponseBody
     public ResponseEntity<MemberResponseVO> getMemberInfo(@RequestBody MemberRequestVO requestVO) {

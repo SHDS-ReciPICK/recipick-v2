@@ -22,11 +22,11 @@ public class OrderApiController {
     
     @Autowired
     private OrderApiService orderApiService;
-    
+
     @Autowired
     private AuthService authService;
     
-    @ResponseBody // key 노출 때문에 포스트 
+    @ResponseBody // key 노출 때문에 포스트
     @PostMapping("/history")
     public ResponseEntity<List<OrderResponseVO>> getOrderHistory(@RequestBody OrderRequestVO requestVO) {
         logger.info("주문 내역 조회 요청: " + requestVO.getMember_id());

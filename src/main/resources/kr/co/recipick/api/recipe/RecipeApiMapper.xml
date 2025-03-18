@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kr.co.recipick.api.recipe.RecipeApiMapper">
+    <select id="getLikedRecipes" parameterType="int" resultType="kr.co.recipick.api.recipe.RecipeLikeResponseVO">
+        SELECT 
+            r.recipe_id, 
+            r.title as recipe_name, 
+            r.main_image as thumbnail_url
+        FROM 
+            recipe_like rl
+        JOIN 
+            recipe r ON rl.recipe_id = r.recipe_id
+        WHERE 
+            rl.member_id = #{memberId}
+        ORDER BY 
+            rl.like_id DESC
+    </select>
+</mapper>
+

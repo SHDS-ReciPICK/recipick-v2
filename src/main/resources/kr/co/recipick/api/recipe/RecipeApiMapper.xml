@@ -16,5 +16,21 @@
         ORDER BY 
             rl.like_id DESC
     </select>
+    
+    <select id="getRecipeSteps" parameterType="int" resultType="kr.co.recipick.api.recipe.RecipeStepResponseVO">
+        SELECT 
+            step_id,
+            recipe_id,
+            description,
+            img_url,
+            sort,
+            time
+        FROM 
+            recipe_step
+        WHERE 
+            recipe_id = #{recipeId}
+        ORDER BY 
+            sort ASC
+    </select>
 </mapper>
 

@@ -15,4 +15,9 @@ public class RecipeApiServiceImpl implements RecipeApiService {
     public List<RecipeLikeResponseVO> getLikedRecipes(int memberId) {
         return recipeApiMapper.getLikedRecipes(memberId);
     }
+    
+    @Override
+    public List<RecipeStepResponseVO> getRecipeSteps(int recipeId) {
+        return recipeApiMapper.getRecipeSteps(recipeId);
+    }
 }

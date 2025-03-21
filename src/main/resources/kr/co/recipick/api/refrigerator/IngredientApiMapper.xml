@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kr.co.recipick.api.refrigerator.IngredientApiMapper">
+    <select id="getIngredients" parameterType="int" resultType="kr.co.recipick.api.refrigerator.IngredientResponseVO">
+    SELECT 
+        #{memberId} AS userId,
+        i.name,
+        i.emoji,
+        i.image,
+        oh.qty AS quantity,
+        DATE_FORMAT(DATE_ADD(oh.order_date, INTERVAL 7 DAY), '%Y-%m-%dT%H:%i:%s') AS expiryDate,
+        icg.ing_main AS mainCategory,
+        icg.ing_sub AS subCategory,
+        icg.ing_detail AS detailCategory
+    FROM 
+        order_history oh
+    JOIN 
+        ingredient i ON oh.ing_id = i.ing_id
+    JOIN 
+        ing_category_group icg ON i.ing_id = icg.ing_id
+    WHERE 
+        oh.member_id = #{memberId}
+        AND oh.category = 'i'
+    ORDER BY 
+        oh.order_date DESC
+    </select>
+</mapper>

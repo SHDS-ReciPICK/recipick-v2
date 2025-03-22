@@ -5,6 +5,7 @@ import lombok.Data;
 @Data
 public class IngredientResponseVO {
     private int userId;
+    private int ohId;
     private String name;
     private String emoji;
     private String image;

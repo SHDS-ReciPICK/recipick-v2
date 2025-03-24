@@ -307,7 +307,7 @@ body {
             </div>
             <div>
                 <!-- title -->
-                <h5 class="mb-1 h6">레시픽 카드</h5>
+                <h5 class="mb-1 h6">SOL Pick 카드</h5>
                 <p class="mb-0 small">포인트 적립 혜택을 받아보세요.</p>
             </div>
         </div>
@@ -594,7 +594,7 @@ body {
 	        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 	      </div> -->
 	      <div class="modal-header" style="background-color: #ff7f50; color: white;">
-    <h5 class="modal-title" id="recipickCardModalLabel">레시픽 카드 결제</h5>
+    <h5 class="modal-title" id="recipickCardModalLabel">SOL Pick 카드 결제</h5>
     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 </div>
 	      <div class="modal-body">
